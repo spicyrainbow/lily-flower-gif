@@ -13,7 +13,8 @@
       .css({
         position: 'absolute',
         left: x - gif.width / 2,
-        top: y - gif.height / 2
+        top: y - gif.height / 2 
+        
       })
       .addTo('body')
   }
@@ -23,13 +24,14 @@
                        
     
     const gif = await nn.loadImage(GIF)
-    const num = 16
+    const num = 100
     for (let i = 0; i < num; i++) {
-      const x = i * gif.width / 4
+      const cx = nn.width / 2
       const cy = nn.height / 2
-      const r = 200
+      const r = 250
       const s = 0.5
-      const y = cy + Math.sin(i*0.5) * r
+      const y = cy + Math.sin(i*s) * r
+      const x = cx + Math.cos(i*s) * r
       createGif (x, y)
     }
   }
