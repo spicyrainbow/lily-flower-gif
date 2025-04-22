@@ -21,10 +21,18 @@
   
   async function setup () {
     nn.get('body').css({ backgroundColor: COLOR })
+    
+    // couldn't figure it out yet!// function animate () {
+    // //     requestAnimationFrame(animate) 
+      
+    // }
+    
+    // animate()
                        
     
     const gif = await nn.loadImage(GIF)
     let rad = 0
+    // let t = 0
     const num = 800
     for (let i = 0; i < num; i++) {
       const cx = nn.width / 2
@@ -35,6 +43,8 @@
       const x = cx + Math.cos(i*s) * rad
       createGif (x, y)
       rad += 0.1 
+      // t += 0.5
+      
     }
   }
       
