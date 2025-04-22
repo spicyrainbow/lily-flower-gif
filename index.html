@@ -24,15 +24,17 @@
                        
     
     const gif = await nn.loadImage(GIF)
+    let rad = 0
     const num = 800
     for (let i = 0; i < num; i++) {
       const cx = nn.width / 2
       const cy = nn.height / 2
-      const r = 250
-      const s = 0.5
-      const y = cy + Math.sin(i*0.5) * 100
-      const x = cx + Math.cos(i*0.25) * 300
+      const r = 100
+      const s = 0.05
+      const y = cy + Math.sin(i*s) * rad 
+      const x = cx + Math.cos(i*s) * rad
       createGif (x, y)
+      rad +=0.1
     }
   }
       
