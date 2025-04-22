@@ -3,7 +3,7 @@
   /* global nn */
 
   const GIF = 'lily-flower-white.gif'
-  const COLOR = 'PAPAYAWHIP'
+  const COLOR = 'LightBlue'
   
   async function createGif (x, y) {
     const gif = await nn.loadImage(GIF)
@@ -29,12 +29,12 @@
     for (let i = 0; i < num; i++) {
       const cx = nn.width / 2
       const cy = nn.height / 2
-      const r = 100
+      // const r = 100
       const s = 0.05
       const y = cy + Math.sin(i*s) * rad 
       const x = cx + Math.cos(i*s) * rad
       createGif (x, y)
-      rad +=0.1
+      rad += 0.1 
     }
   }
       
