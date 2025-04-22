@@ -24,14 +24,14 @@
                        
     
     const gif = await nn.loadImage(GIF)
-    const num = 100
+    const num = 300
     for (let i = 0; i < num; i++) {
       const cx = nn.width / 2
       const cy = nn.height / 2
       const r = 250
       const s = 0.5
-      const y = cy + Math.sin(i*s) * r
-      const x = cx + Math.cos(i*s) * r
+      const y = cy + Math.sin(i*0.5) * 100
+      const x = cx + Math.cos(i*0.25) * 300
       createGif (x, y)
     }
   }
