@@ -2,18 +2,18 @@
 <script>
   /* global nn */
 
-  const GIF = 'lily-flower.gif'
+  const GIF = 'lily-flower-white.gif'
   const COLOR = 'PAPAYAWHIP'
   
-  function createGif (x, y, w, h, url) {
+  async function createGif (x, y) {
+    const gif = await nn.loadImage(GIF)
     nn.create('img')
-      .set({ src: url })
+      .set({  src: `${GIF}#${Math.random()}` 
+      })
       .css({
         position: 'absolute',
-        width: w,
-        height: h,
-        left: x - w / 2,
-        top: y - h / 2
+        left: x - gif.width / 2,
+        top: y - gif.height / 2
       })
       .addTo('body')
   }
@@ -23,13 +23,14 @@
                        
     
     const gif = await nn.loadImage(GIF)
-    const num = 100
+    const num = 16
     for (let i = 0; i < num; i++) {
       const x = i * gif.width / 4
       const cy = nn.height / 2
-      const e = 100
-      const y = cy + Math.sin(i) * r
-      createGif(x, y, gif.width, gif.height, GIF)
+      const r = 200
+      const s = 0.5
+      const y = cy + Math.sin(i*0.5) * r
+      createGif (x, y)
     }
   }
       
