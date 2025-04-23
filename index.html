@@ -1,14 +1,15 @@
-<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js?v=1"></script>
 <script>
   /* global nn */
 
   const GIF = 'lily-flower-small.gif'
   const COLOR = 'LightBlue'
+  let rad = 0
   
   async function createGif (x, y) {
     const gif = await nn.loadImage(GIF)
     nn.create('img')
-      .set({  src: `${GIF}#${Math.random()}` 
+      .set({  src: GIF 
       })
       .css({
         position: 'absolute',
@@ -30,17 +31,18 @@
     // animate()
                        
     
-    const gif = await nn.loadImage(GIF)
-    let rad = 0
+    // const gif = await nn.loadImage(GIF)
+    
     // let t = 0
     const num = 800
     for (let i = 0; i < num; i++) {
       const cx = nn.width / 2
       const cy = nn.height / 2
-      // const r = 100
       const s = 0.05
-      const y = cy + Math.sin(i*s) * rad 
-      const x = cx + Math.cos(i*s) * rad
+      // const r = 100
+      const x = cx + Math.cos(i*s)*rad
+      const y = cy + Math.sin(i*s)*rad
+      // await nn.sleep(10)
       createGif (x, y)
       rad += 0.1 
       // t += 0.5
