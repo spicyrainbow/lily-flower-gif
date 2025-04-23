@@ -5,17 +5,20 @@
   const GIF = 'lily-flower-small.gif'
   const COLOR = 'LightBlue'
   let rad = 0
+  let halfGifWidth, halfGifHeight
+  
   
   async function createGif (x, y) {
     const gif = await nn.loadImage(GIF)
+    halfGifWidth = gif.width / 2
+    halfGifHeight = gif.height / 2 
     nn.create('img')
       .set({  src: GIF 
       })
       .css({
         position: 'absolute',
-        left: x - gif.width / 2,
-        top: y - gif.height / 2 
-        
+        left: x - halfGifWidth,
+        top: y - halfGifHeight
       })
       .addTo('body')
   }
@@ -44,8 +47,8 @@
      const cx = nn.width / 2
       const cy = nn.height / 2
       const s = 0.05
-      const x = cx + Math.cos(i*s)*rad - img.width / 2
-      const y = cy + Math.sin(i*s)*rad - img.height / 2
+      const x = cx + Math.cos(i*s)*rad - halfGifWidth
+      const y = cy + Math.sin(i*s)*rad - halfGifHeight
      
       img.position(x, y)
    })  
