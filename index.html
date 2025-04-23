@@ -45,7 +45,7 @@
    rad = e.x
    const cx = nn.width / 2
    const cy = nn.height / 2
-   const s = 0.05
+   const s = e.y*0.05
    nn.getAll('img').forEach((img, i) => {
       const x = cx + Math.cos(i*s)*rad - halfGifWidth
       const y = cy + Math.sin(i*s)*rad - halfGifHeight
